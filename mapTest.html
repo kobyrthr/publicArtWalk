@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <title>Delivery App</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+      }
+      .truck {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        background: #3887be;
+        pointer-events: none;
+        }
+    </style>
+  </head>
+  <body>
+    <div id='map'></div>
+    <script>
+        const truckLocation = [ -76.585, 39.311830];
+        const warehouseLocation = [ -76.611180, 39.311830];
+        const lastAtRestaurant = 0;
+        const keepTrack = [];
+        const pointHopper = {};
+
+        // Add your access token
+        mapboxgl.accessToken = 'pk.eyJ1Ijoia29ieXJ0aHIiLCJhIjoiY2wyb3praW1hMmZ4MTNlc2JvOTZlNmhkZSJ9.TYAumOYpo4s7GkldMOGLYQ';
+
+        // Initialize a map
+        const map = new mapboxgl.Map({
+            container: 'map', // container id
+            style: 'mapbox://styles/mapbox/light-v10', // stylesheet location
+            center: truckLocation, // starting position
+            zoom: 12 // starting zoom
+            });
+        
+        // Create a GeoJSON feature collection for the warehouse
+        const warehouse = turf.featureCollection([turf.point(warehouseLocation)]);
+
+        // add a marker once the map has loaded            
+        map.on('load', async () => {
+            const marker = document.createElement('div');
+            marker.classList = 'truck';
+
+        // Create a new marker
+        new mapboxgl.Marker(marker).setLngLat(truckLocation).addTo(map);
+
+        map.addLayer({
+            id: 'warehouse',
+            type: 'circle',
+            source: {
+                data: warehouse,
+                type: 'geojson'
+            },
+            paint: {
+                'circle-radius': 20,
+                'circle-color': 'white',
+                'circle-stroke-color': '#3887be',
+                'circle-stroke-width': 3
+            }
+        });
+
+        // Create a symbol layer on top of circle layer
+        map.addLayer({
+            id: 'warehouse-symbol',
+            type: 'symbol',
+            source: {
+                data: warehouse,
+                type: 'geojson'
+            },
+            layout: {
+                'icon-image': 'grocery-15',
+                'icon-size': 1
+            },
+            paint: {
+                'text-color': '#3887be'
+            }
+            });
+        });
+
+
+    </script>
+  </body>
+</html>
