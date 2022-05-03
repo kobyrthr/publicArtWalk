@@ -182,3 +182,28 @@ link.addEventListener('click', function () {
     }
     this.parentNode.classList.add('active');
   });
+
+
+
+
+
+/**
+ * The object "stores" is a FeatureCollection. 
+ * A FeatureCollection is an object that that has a collection of features in it. 
+ * Each feature in the feature collection is an object that that has two propoerties
+    * an unamed property that identifies it as a point on the map on the map with some coordinates
+    * a set of propoerties that include it's addess and contact information
+    * 
+    * type:"Feature collection"
+    * features: [
+        * {
+            * {type:Feature
+            * geometry:{
+            * type: point
+            * coordinates[]
+            * }
+    * 
+    * }
+    * ]
+    * FeatureCollect
+ */
