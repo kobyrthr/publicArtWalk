@@ -12,6 +12,95 @@ const stores = {
     "type": "FeatureCollection",
     "features": [ ]
   };
+  class StoreCoordinates {
+    constructor(
+        lng,lat,
+        phoneFormatted,
+        phone,
+        address,
+        city,
+        state,
+        crossStreet,
+        postalCode,
+        country
+        )
+        {
+        this.type = "Feature",
+        this.geometry = {
+            "type": "Point",
+            "coordinates":[lng,lat]
+        },
+        this.properties = {
+            "phoneFormatted": phoneFormatted,
+            "phone": phone,
+            "address": address,
+            "city": city,
+            "country": country,
+            "crossStreet": crossStreet,
+            "postalCode": postalCode,
+            "state": state,
+
+        }
+    }
+
+   }
+
+const storeDB = [
+    {
+        "lng": -77.049766,
+        "lat": 38.900772,
+        "phoneFormatted": "(202) 507-8357",
+        "phone": "2025078357",
+        "address": "2221 I St NW",
+        "city": "Washington DC",
+        "country": "United States",
+        "crossStreet": "at 22nd St NW",
+        "postalCode": "20037",
+        "state": "D.C."
+    },
+    {
+        "lng":-77.043929,
+        "lat":38.910525,
+        "phoneFormatted": "(202) 387-9338",
+        "phone": "2023879338",
+        "address": "1512 Connecticut Ave NW",
+        "city": "Washington DC",
+        "country": "United States",
+        "crossStreet": "at Dupont Circle",
+        "postalCode": "20036",
+        "state": "D.C."
+    },
+    {
+        "lng":-77.06723,
+        "lat":.90516896,
+        "phoneFormatted": "(202) 337-9338",
+        "phone": "2023379338",
+        "address": "3333 M St NW",
+        "city": "Washington DC",
+        "country": "United States",
+        "crossStreet": "at 34th St NW",
+        "postalCode": "20007",
+        "state": "D.C."
+    }
+]
+
+let newStores = storeDB.map(item => new StoreCoordinates(
+        item.lng,
+        item.lat,
+        item.phoneFormatted,
+        item.phone,
+        item.address,
+        item.city,
+        item.state,
+        item.crossStreet,
+        item.postalCode,
+        item.country
+))
+
+for (var i of newStores) {
+    stores.features.push(i)
+}
+// stores.features.push(newStores)
 
 stores.features.forEach(function (store, i) {
     store.properties.id = i;
@@ -115,54 +204,23 @@ function createPopUp(currentFeature) {
 
 
 
-class StoreCoordinates {
-    constructor(
-        lng,lat,
-        phoneFormatted,
-        phone,
-        address,
-        city,
-        state,
-        crossStreet,
-        postalCode,
-        country
-        )
-        {
-        this.type = "Feature",
-        this.geometry = {
-            "type": "Point",
-            "coordinates":[lng,lat]
-        },
-        this.properties = {
-            "phoneFormatted": phoneFormatted,
-            "phone": phone,
-            "address": address,
-            "city": city,
-            "country": country,
-            "crossStreet": crossStreet,
-            "postalCode": postalCode,
-            "state": state,
-
-        }
-    }
-
-   }
 
 
-const newStore = new StoreCoordinates(
-    -77.021080,
-    38.914720,
-    "(202) 234-7336",
-    "2022347336",
-    "1471 P St NW",
-    "Washington DC",
-    "United States",
-    "at 15th St NW",
-    "20005",
-    "D.C."
-    )
-console.log(newStore)
-stores.features.push(newStore)
+
+// const newStore = new StoreCoordinates(
+//     -77.021080,
+//     38.914720,
+//     "(202) 234-7336",
+//     "2022347336",
+//     "My test Store",
+//     "Washington DC",
+//     "United States",
+//     "at 15th St NW",
+//     "20005",
+//     "D.C."
+//     )
+// console.log(newStore)
+// stores.features.push(newStore)
 
 // class StoreProperties {
 //    constructor(phone,address,city,state,postalCode,country){
@@ -198,3 +256,5 @@ link.addEventListener('click', function () {
     }
     this.parentNode.classList.add('active');
   });
+
+
