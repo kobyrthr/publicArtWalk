@@ -10,10 +10,10 @@
     - Users have the ability to create locations in bulk via .csv upload
 
 ## ERD
-<img src ="deliveryAppImages/deliveryApp ERD.png">
+<img src ="images/deliveryApp ERD.png">
 
 ## Designs
 
-<img src ="deliveryAppImages/deliveryApp login wireframe.png">
-<img src ="deliveryAppImages/deliveryApp Maps wireframe.png">
-<img src ="deliveryAppImages/deliveryApp mapView wireframe.png">
+<img src ="images/deliveryApp-login-wireframe.png">
+<img src ="images/deliveryApp Maps wireframe.png">
+<img src ="images/deliveryApp mapView wireframe.png">
