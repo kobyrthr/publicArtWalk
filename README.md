@@ -21,5 +21,4 @@ An app for delivery route managers to visualize all their delivery points on an 
 
 <img src ="images/deliveryApp login wireframe.png">
 <img src ="images/deliveryApp Maps wireframe.png">
-<img src ="images/deliveryApp Maps wireframe.png">
 <img src ="images/deliveryApp mapView wireframe.png">
