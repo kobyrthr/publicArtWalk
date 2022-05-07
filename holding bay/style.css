@@ -31,7 +31,7 @@
   gets 2/3 of the page. You can adjust this to your personal liking. */
   .sidebar {
     position: absolute;
-    width: 33.3333%;
+    width: 25%;
     height: 100%;
     top: 0;
     left: 0;
@@ -42,7 +42,7 @@
   .map {
     position: absolute;
     left: 33.3333%;
-    width: 66.6666%;
+    width: 75%;
     top: 0;
     bottom: 0;
   }
@@ -139,3 +139,19 @@
     border-bottom-color: #91c949;
   }
   
+  .location-form {
+    display: flex;
+    width: 15%;
+    flex-direction: column;
+    background-color: red;
+    position: absolute;
+    right: 1%;
+    top:1%;
+    z-index: 3;
+    padding: 24px;
+  }
+
+  .location-form form {
+    display: flex;
+    flex-direction: column;
+  }

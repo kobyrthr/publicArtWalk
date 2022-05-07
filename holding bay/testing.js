@@ -5,7 +5,7 @@ const map = new mapboxgl.Map({
   style: 'mapbox://styles/mapbox/light-v10',
   center: [-77.034084, 38.909671],
   zoom: 13,
-  scrollZoom: false
+  scrollZoom: true
 });
 
 const stores = {
@@ -100,7 +100,6 @@ let newStores = storeDB.map(item => new StoreCoordinates(
 for (var i of newStores) {
     stores.features.push(i)
 }
-// stores.features.push(newStores)
 
 stores.features.forEach(function (store, i) {
     store.properties.id = i;
@@ -195,53 +194,6 @@ function createPopUp(currentFeature) {
     .setHTML(`<h3>Sweetgreen</h3><h4>${currentFeature.properties.address}</h4>`)
     .addTo(map);
 }
-
-
-
-
-
-/************************************************************************************************************************/
-
-
-
-
-
-
-// const newStore = new StoreCoordinates(
-//     -77.021080,
-//     38.914720,
-//     "(202) 234-7336",
-//     "2022347336",
-//     "My test Store",
-//     "Washington DC",
-//     "United States",
-//     "at 15th St NW",
-//     "20005",
-//     "D.C."
-//     )
-// console.log(newStore)
-// stores.features.push(newStore)
-
-// class StoreProperties {
-//    constructor(phone,address,city,state,postalCode,country){
-//        this.phone = phone,
-//        this.address = address,
-//        this.city = city,
-//        this.state = state,
-//        this.postalCode = postalCode,
-//        this.phone = phone
-       
-//    }
-
-// }
-
-
-// class FullStoreObject {
-//     constructor(StoreCoordinates, StoreProperties){
-
-//     }
-
-// }
 
 link.addEventListener('click', function () {
     for (const feature of stores.features) {
