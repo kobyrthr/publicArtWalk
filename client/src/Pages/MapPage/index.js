@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 // import Map from 'react-map-gl';
 /* eslint import/no-webpack-loader-syntax: off */
-import './index.css';
 import mapboxgl from '!mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 mapboxgl.accessToken = 'pk.eyJ1Ijoia29ieXJ0aHIiLCJhIjoiY2oweTVwaDRqMDFhajJ3cGVnODllOG92cCJ9.Zz99tb4K4fFB3Bgs54C8rA';
