@@ -1,6 +1,11 @@
 // import React, { useRef, useEffect, useState } from 'react';
 // import mapboxgl from '!mapbox-gl';
-// mapboxgl.accessToken = 'pk.eyJ1Ijoia29ieXJ0aHIiLCJhIjoiY2wyb3praW1hMmZ4MTNlc2JvOTZlNmhkZSJ9.TYAumOYpo4s7GkldMOGLYQ';
+
+import * as React from 'react';
+import Map from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+const MAPBOX_TOKEN = 'pk.eyJ1Ijoia29ieXJ0aHIiLCJhIjoiY2wyb3praW1hMmZ4MTNlc2JvOTZlNmhkZSJ9.TYAumOYpo4s7GkldMOGLYQ';
+
 
 const MapPage =()=>{
     
@@ -24,7 +29,17 @@ const MapPage =()=>{
                 </div>
                 <div id='listings' class='listings'></div>
             </div>
-            <div id="map" class="map"></div> 
+            <Map
+                initialViewState={{
+                    latitude: 37.8,
+                    longitude: -122.4,
+                    zoom: 14
+                 }}
+                style={{width: 800, height: 600}}
+                mapStyle="mapbox://styles/mapbox/streets-v9"
+                mapboxAccessToken={MAPBOX_TOKEN}
+            >
+            </Map>
 
         </div>
     )
