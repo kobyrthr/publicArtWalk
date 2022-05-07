@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Left_Sidebar() {
+export default function LeftSidebar() {
   return (
     <div class='sidebar'>
         <div class='heading'>
