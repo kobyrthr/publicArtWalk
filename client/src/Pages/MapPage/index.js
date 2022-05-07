@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import LeftSidebar from '../../Components/LeftSidebar'
+import AddLocForm from '../../Components/AddLocForm'
 mapboxgl.accessToken = 'pk.eyJ1Ijoia29ieXJ0aHIiLCJhIjoiY2oweTVwaDRqMDFhajJ3cGVnODllOG92cCJ9.Zz99tb4K4fFB3Bgs54C8rA';
 
 
@@ -30,18 +31,8 @@ const MapPage =()=>{
     
     return(
         <div>
-          <div class="location-form">
-            <form action="/" method="POST">
-              <label for="Name">Name</label>
-              <input type="text" name='Name'></input>
-              <label for="longitude">Longitude</label>
-              <input type="text" name='longitude'></input>
-              <label for="latitude">Latitude</label>
-              <input type="text" name='latitude'></input>
-              <button>Submit</button>
-            </form> 
-          </div>
-          <LeftSidebar/>
+          <><AddLocForm/></>
+          <><LeftSidebar/></>
           <div ref={mapContainer} className="map" />
 
         </div>
