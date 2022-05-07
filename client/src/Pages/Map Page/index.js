@@ -1,4 +1,9 @@
+// import React, { useRef, useEffect, useState } from 'react';
+// import mapboxgl from '!mapbox-gl';
+// mapboxgl.accessToken = 'pk.eyJ1Ijoia29ieXJ0aHIiLCJhIjoiY2wyb3praW1hMmZ4MTNlc2JvOTZlNmhkZSJ9.TYAumOYpo4s7GkldMOGLYQ';
+
 const MapPage =()=>{
+    
     return(
         <div>
 
