@@ -11,6 +11,7 @@ const cors = require('cors');
 // Required Internal Modules
 // all code that is our code
 const pinRoute = require("./routes/pins")
+const userRoute = require("./routes/users")
 
 
 /* ====== Instanced Module  ====== */
@@ -51,6 +52,7 @@ mongoose
 
 /* ====== Routes  ====== */
 app.use("/api/pins", pinRoute)
+app.use("/api/register", userRoute)
 
 	
 /* ====== Server bind  ====== */
