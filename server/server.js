@@ -52,7 +52,7 @@ mongoose
 
 /* ====== Routes  ====== */
 app.use("/api/pins", pinRoute)
-app.use("/api/register", userRoute)
+app.use("/api/user", userRoute)
 
 	
 /* ====== Server bind  ====== */
