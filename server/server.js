@@ -7,10 +7,10 @@ require('dotenv').config({path: './.env'});
 const cors = require('cors');
 
 
-
 /* ====== Internal Modules  ====== */
 // Required Internal Modules
 // all code that is our code
+const pinRoute = require("./routes/pins")
 
 
 /* ====== Instanced Module  ====== */
@@ -24,6 +24,7 @@ app.use(express.static(path.join('build')));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 
 /* ====== System Variables  ====== */
@@ -49,6 +50,7 @@ mongoose
 
 
 /* ====== Routes  ====== */
+app.use("/api/pins", pinRoute)
 
 	
 /* ====== Server bind  ====== */
