@@ -20,7 +20,26 @@ const MapApp =()=> {
       mapStyle="mapbox://styles/mapbox/light-v10"
       mapboxAccessToken={'pk.eyJ1Ijoia29ieXJ0aHIiLCJhIjoiY2oweTVwaDRqMDFhajJ3cGVnODllOG92cCJ9.Zz99tb4K4fFB3Bgs54C8rA'}
     >
-      <Marker longitude={-77.034084} latitude={38.909671} color="red" />
+
+    <>
+      {CITIES.map((city,index)=>{
+      return <Marker
+        key={`marker-${index}`}
+        longitude={city.longitude}
+        latitude={city.latitude}
+        anchor="bottom"
+      />
+    })}
+
+    </>
+
+
+    <Marker 
+      longitude={-77.034084} 
+      latitude={38.909671} 
+      color="red"
+       />
+
     </Map>
 
 
