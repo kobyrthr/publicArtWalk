@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
-import PlaceCard from '../PlaceCard';
 
-export default function LeftSidebar() {
-
-
+export default function LeftSidebar({pins}) {
 
   return (
-    <div class='sidebar'>
-        <div class='heading'>
+    <div className='sidebar'>
+        <div className='heading'>
           <h1>Our locations</h1>
         </div>
-       <PlaceCard></PlaceCard>
-        <div id='listings' class='listings'></div>
+       
+         {pins.map((pin)=>{
+            return <li>
+
+            lng = {pin.lng}
+            lat = {pin.lat}
+
+            </li>
+         })}
+        <div id='listings' className='listings'></div>
     </div>
   )
 }

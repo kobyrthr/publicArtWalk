@@ -24,7 +24,6 @@ const MapApp =()=> {
     getPins();
   },[])
 
-  console.log(process.env)
   return(
 <div>
     <div className="map">
@@ -49,8 +48,6 @@ const MapApp =()=> {
           color="dodgerblue"
           anchor="bottom"
           onClick={e => {
-              // If we let the click event propagates to the map, it will immediately close the popup
-              // with `closeOnClick: true`
               e.originalEvent.stopPropagation();
               setPopupInfo(city);
             }}
@@ -83,10 +80,8 @@ const MapApp =()=> {
 
       </Map>
     </div>
-    <LeftSidebar>
+    <LeftSidebar pins={pins} />
         
-
-    </LeftSidebar>
 </div>
   )
 
