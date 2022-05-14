@@ -40,9 +40,9 @@ const MapApp =()=> {
       >
 
 
-        {pins.map((city)=>{
-        <Marker
-          
+        {pins.map((city,index)=>{
+        return <Marker
+          key={`marker-${index}`}
           longitude={city.lng}
           latitude={city.lat}
           color="red"
@@ -78,11 +78,7 @@ const MapApp =()=> {
           )}
 
 
-      <Marker 
-        longitude={-77.034084} 
-        latitude={38.909671} 
-        color="red"
-        />
+      
 
       </Map>
     </div>
