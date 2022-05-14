@@ -4,10 +4,25 @@ import Map, {Marker, Popup} from 'react-map-gl';
 import CITIES from '../../../src/data/cities.json'
 import LeftSidebar from '../../Components/LeftSidebar';
 import PlaceCard from '../../Components/PlaceCard';
+import axios from "axios"
 
 const MapApp =()=> {
-  const [showPopup, setShowPopup] = React.useState(true);
+  const [pins, setPins] = useState([])
+  const [showPopup, setShowPopup] = useState(true);
   const [popupInfo, setPopupInfo] = useState(null);
+  const MY_API = "http://localhost:4000/api"
+
+  useEffect(()=>{
+    const getPins = async () =>{
+      try {
+        const allPins = await axios.get(MY_API+'/pins');
+        setPins(allPins.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getPins();
+  },[])
 
 
   return(
@@ -24,12 +39,12 @@ const MapApp =()=> {
         mapboxAccessToken={'pk.eyJ1Ijoia29ieXJ0aHIiLCJhIjoiY2oweTVwaDRqMDFhajJ3cGVnODllOG92cCJ9.Zz99tb4K4fFB3Bgs54C8rA'}
       >
 
-      <>
-        {CITIES.map((city,index)=>{
-        return <Marker
-          key={`marker-${index}`}
-          longitude={city.longitude}
-          latitude={city.latitude}
+
+        {pins.map((city)=>{
+        <Marker
+          
+          longitude={city.lng}
+          latitude={city.lat}
           color="red"
           anchor="bottom"
           onClick={e => {
@@ -40,7 +55,7 @@ const MapApp =()=> {
             }}
         />
       })}
-      </>
+  
 
       {popupInfo && (
             <Popup
