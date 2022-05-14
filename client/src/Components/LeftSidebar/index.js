@@ -5,7 +5,7 @@ export default function LeftSidebar({pins}) {
   return (
     <div className='sidebar'>
         <div className='heading'>
-          <h1>Our locations</h1>
+          <h1>Location List</h1>
         </div>
        
          {pins.map((pin)=>{

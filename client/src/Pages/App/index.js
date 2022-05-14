@@ -58,20 +58,14 @@ const MapApp =()=> {
       {popupInfo && (
             <Popup
               anchor="top"
-              longitude={Number(popupInfo.longitude)}
-              latitude={Number(popupInfo.latitude)}
+              longitude={Number(popupInfo.lng)}
+              latitude={Number(popupInfo.lat)}
               onClose={() => setPopupInfo(null)}
             >
               <div>
                 {popupInfo.city}, {popupInfo.state} |{' '}
-                <a
-                  target="_new"
-                  href={`http://en.wikipedia.org/w/index.php?title=Special:Search&search=${popupInfo.city}, ${popupInfo.state}`}
-                >
-                  Wikipedia
-                </a>
               </div>
-              <img width="100%" src={popupInfo.image} />
+              <img width="100%" src={popupInfo.img_url} />
             </Popup>
           )}
 
