@@ -1,11 +1,12 @@
 import React, { useRef,useEffect, useState } from 'react';
 /* eslint import/no-webpack-loader-syntax: off */
 import mapboxgl from '!mapbox-gl';
+import ReactMapGL from "react-map-gl";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import LeftSidebar from '../../Components/LeftSidebar'
 import AddLocForm from '../../Components/AddLocForm'
 import MapBox from '../../Components/MapBox'
-mapboxgl.accessToken = 'pk.eyJ1Ijoia29ieXJ0aHIiLCJhIjoiY2oweTVwaDRqMDFhajJ3cGVnODllOG92cCJ9.Zz99tb4K4fFB3Bgs54C8rA';
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX
 
 
 
@@ -16,6 +17,11 @@ const MapPage =()=>{
   const [lng, setLng] = useState(-77.034084);
   const [lat, setLat] = useState(38.909671);
   const [zoom, setZoom] = useState(13);
+  const [viewport, setViewport] = useState({
+    latitude: 38.909671,
+    longitude: -77.034084,
+    zoom: 12,
+  });
   
   useEffect(() => {
       if (map.current) return; // initialize map only once
@@ -283,23 +289,7 @@ const MapPage =()=>{
     }
   ])
   
-  useEffect(()=>{
-    stores.features.forEach(function (store, i) {
-  store.properties.id = i;
 
-  
-  stores.features.forEach(function (store, i) {
-    store.properties.id = i;
-  });
-
-  
- 
-
-
-
-});
-
-  })
     return(
         <div>
           <>

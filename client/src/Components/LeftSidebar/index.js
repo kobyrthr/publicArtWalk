@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PlaceCard from '../PlaceCard';
 
 export default function LeftSidebar() {
 
@@ -9,11 +10,7 @@ export default function LeftSidebar() {
         <div class='heading'>
           <h1>Our locations</h1>
         </div>
-        <div id="inputForm">
-            <form action="">
-                <label for="Name"></label>
-            </form>
-        </div>
+       <PlaceCard></PlaceCard>
         <div id='listings' class='listings'></div>
     </div>
   )

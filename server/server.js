@@ -3,7 +3,8 @@
 // all required code that is not our own
 const express = require('express');
 const path = require('path');
-require('dotenv').config({path: './.env'});
+require('dotenv').config({path:'../.env'});
+console.log(process.env)
 const cors = require('cors');
 
 
@@ -11,6 +12,7 @@ const cors = require('cors');
 // Required Internal Modules
 // all code that is our code
 const pinRoute = require("./routes/pins")
+const userRoute = require("./routes/users")
 
 
 /* ====== Instanced Module  ====== */
@@ -51,6 +53,7 @@ mongoose
 
 /* ====== Routes  ====== */
 app.use("/api/pins", pinRoute)
+app.use("/api/user", userRoute)
 
 	
 /* ====== Server bind  ====== */
