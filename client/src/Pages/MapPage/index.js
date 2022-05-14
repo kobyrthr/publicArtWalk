@@ -6,7 +6,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import LeftSidebar from '../../Components/LeftSidebar'
 import AddLocForm from '../../Components/AddLocForm'
 import MapBox from '../../Components/MapBox'
-mapboxgl.accessToken = 'pk.eyJ1Ijoia29ieXJ0aHIiLCJhIjoiY2oweTVwaDRqMDFhajJ3cGVnODllOG92cCJ9.Zz99tb4K4fFB3Bgs54C8rA';
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX
 
 
 

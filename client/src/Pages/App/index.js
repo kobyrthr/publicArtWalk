@@ -10,12 +10,12 @@ const MapApp =()=> {
   const [pins, setPins] = useState([])
   const [showPopup, setShowPopup] = useState(true);
   const [popupInfo, setPopupInfo] = useState(null);
-  const MY_API = "http://localhost:4000/api"
+  const slash = "http://localhost:4000/api"
 
   useEffect(()=>{
     const getPins = async () =>{
       try {
-        const allPins = await axios.get(MY_API+'/pins');
+        const allPins = await axios.get(slash+'/pins');
         setPins(allPins.data)
       } catch (error) {
         console.log(error)
@@ -24,20 +24,21 @@ const MapApp =()=> {
     getPins();
   },[])
 
-
+  console.log(process.env)
   return(
 <div>
     <div className="map">
       <Map
         initialViewState={{
-          longitude: -77.034084,
-          latitude: 38.909671,
-          zoom: 2
+          longitude: -76.6122,
+          latitude: 39.2904,
+          zoom: 12
         }}
         style={{width: '100vw', height: '100vh'}}
         mapStyle="mapbox://styles/mapbox/light-v10"
-        mapboxAccessToken={'pk.eyJ1Ijoia29ieXJ0aHIiLCJhIjoiY2oweTVwaDRqMDFhajJ3cGVnODllOG92cCJ9.Zz99tb4K4fFB3Bgs54C8rA'}
+        mapboxAccessToken={process.env.REACT_APP_MAPBOX}
       >
+
 
 
         {pins.map((city,index)=>{
@@ -45,7 +46,7 @@ const MapApp =()=> {
           key={`marker-${index}`}
           longitude={city.lng}
           latitude={city.lat}
-          color="red"
+          color="dodgerblue"
           anchor="bottom"
           onClick={e => {
               // If we let the click event propagates to the map, it will immediately close the popup

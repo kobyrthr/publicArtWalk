@@ -3,7 +3,8 @@
 // all required code that is not our own
 const express = require('express');
 const path = require('path');
-require('dotenv').config({path: './.env'});
+require('dotenv').config({path:'../.env'});
+console.log(process.env)
 const cors = require('cors');
 
 
