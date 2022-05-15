@@ -11,8 +11,9 @@ export default function LeftSidebar({pins}) {
          {pins.map((pin)=>{
             return <li>
 
-            lng = {pin.lng}
-            lat = {pin.lat}
+            <strong>Artist</strong>: {pin.Artist}<br></br>
+            <strong>Address</strong>: {pin.Street}, PostalCode: {pin.PostalCode}<br></br>
+            <strong>Year</strong>: {pin.Year}<br></br>
 
             </li>
          })}

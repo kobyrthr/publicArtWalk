@@ -63,7 +63,9 @@ const MapApp =()=> {
               onClose={() => setPopupInfo(null)}
             >
               <div>
-                {popupInfo.city}, {popupInfo.state} |{' '}
+                <strong>Artist</strong>: {popupInfo.Artist}<br></br>
+                <strong>Address</strong>: {popupInfo.Street}, PostalCode: {popupInfo.PostalCode}<br></br>
+                <strong>Year</strong>: {popupInfo.Year}<br></br>
               </div>
               <img width="100%" src={popupInfo.img_url} />
             </Popup>
