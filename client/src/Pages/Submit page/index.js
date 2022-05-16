@@ -1,9 +1,28 @@
+import React,{useState,useEffect} from "react"
+import axios from "axios"
+
 const SubmitPage = ()=>{
+const slash = "http://localhost:4000/api"
+const [suggestions, setSuggestions] = useState([])
+
+
+useEffect(()=>{
+    const getSuggestions = async()=>{
+        try {
+            const allSuggestions = await axios.get(slash+'/suggestions')
+            setSuggestions(allSuggestions.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    getSuggestions()
+},[])
+
 
     return(
         <div className="row sgstPage">
 
-            <form class="columns six suggestForm" action="/" method="POST">
+            <form className="columns six suggestForm" action="/" method="POST">
                 <h1> Suggest A Location</h1>
                 <label for="title">Your Name</label>
                 <input type="text" name="title"></input>
@@ -23,13 +42,18 @@ const SubmitPage = ()=>{
 
                 <div className="columns six loc-list-wrapper">
                     <h3>Suggested Locations</h3>
-                    <div classNamme = "loc-list">
+                    <div className = "loc-list">
 
-                        <li>
-                        {/* <strong>Artist</strong>: {popupInfo.Artist}<br></br>
-                        <strong>Address</strong>: {popupInfo.Street}, PostalCode: {popupInfo.PostalCode}<br></br>
-                        <strong>Year</strong>: {popupInfo.Year}<br></br> */}
-                        </li>
+                    {
+                        suggestions.map((suggestion,index)=>{
+                            return <li>
+                                {suggestion.Street}
+                                {suggestion.Zip_Code}
+                                {suggestion.Zip_Code}
+                            </li>
+                        })
+                    }
+
                         <div className="icn-btn"></div>
                         <div className="icn-btn"></div>
                     </div>

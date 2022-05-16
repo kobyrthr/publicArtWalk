@@ -9,7 +9,7 @@ router.post('/', async (req, res)=>{
         const savedSuggestion = await newSuggestion.save()
         res.status(200).json(savedSuggestion)
     }
-    catch{
+    catch(err){
         res.status(500).json(err)
     }
 })
@@ -39,7 +39,7 @@ try {
 }
 })
 
-
+// DELETE ROUTE
 router.delete('/:id/', async(req,res)=>{
     try {
         await Suggestion.findByIdAndDelete({_id:req.params.id})
