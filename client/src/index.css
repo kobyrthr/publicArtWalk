@@ -151,7 +151,21 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
   padding: 24px;
 }
 
+.sgstPage{
+  display: flex;
+  flex-direction: row;
+}
+
 .location-form form {
   display: flex;
   flex-direction: column;
+}
+.suggestForm{
+  display: flex;
+  flex-direction: column;
+}
+
+.loc-list-wrapper{
+display: flex;
+flex-direction: column;
 }
