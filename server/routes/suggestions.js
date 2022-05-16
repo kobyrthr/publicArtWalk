@@ -1,5 +1,4 @@
 const router = require("express").Router()
-const Pin = require("../models/Pin")
 const Suggestion = require("../models/Suggestion")
 
 // POST ROUTE  
@@ -17,6 +16,7 @@ router.post('/', async (req, res)=>{
 
 
 //GET ROUTE
+
 router.get('/', async(req,res)=>{
     try {
         const allSuggestions = await Suggestion.find()
@@ -26,4 +26,28 @@ router.get('/', async(req,res)=>{
         res.status(500).json(err)
     }
 })
+
+//PUT ROUTE
+router.put('/:id', async(req,res)=>{
+try {
+    const updatedSuggestion = await Suggestion.findByIdAndUpdate(req.params.id,
+        {$set:{...req.body}},
+        {new:true})
+    res.send(200).json(updatedSuggestion)
+} catch (error) {
+    res.send(500).json(error)
+}
+})
+
+
+router.delete('/:id/', async(req,res)=>{
+    try {
+        await Suggestion.findByIdAndDelete({_id:req.params.id})
+        res.send("succesfully deleted")
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+
+
 module.exports = router
