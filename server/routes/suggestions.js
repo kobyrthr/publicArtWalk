@@ -9,7 +9,7 @@ router.post('/', async (req, res)=>{
         const savedSuggestion = await newSuggestion.save()
         res.status(200).json(savedSuggestion)
     }
-    catch(err){
+    catch{
         res.status(500).json(err)
     }
 })

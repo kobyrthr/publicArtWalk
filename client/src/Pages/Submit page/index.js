@@ -2,14 +2,14 @@ import React,{useState,useEffect} from "react"
 import axios from "axios"
 
 const SubmitPage = ()=>{
-const slash = "http://localhost:4000/api"
+const slash = "http://localhost:4000/api/suggestions"
 const [suggestions, setSuggestions] = useState([])
 
 
 useEffect(()=>{
     const getSuggestions = async()=>{
         try {
-            const allSuggestions = await axios.get(slash+'/suggestions')
+            const allSuggestions = await axios.get(slash)
             setSuggestions(allSuggestions.data)
         } catch (error) {
             console.log(error)
@@ -18,6 +18,20 @@ useEffect(()=>{
     getSuggestions()
 },[])
 
+
+const suggestionDelete = async (id,e)=>{
+    try {
+        e.preventDefault()
+        const deletedSuggestion = await axios.delete(slash+`/${id}`)
+        console.log(id)
+        console.log(deletedSuggestion)        
+    } catch (error) {
+        console.log(error)
+    } 
+}
+useEffect(()=>{
+    suggestionDelete()
+},[])
 
     return(
         <div className="row sgstPage">
@@ -47,9 +61,14 @@ useEffect(()=>{
                     {
                         suggestions.map((suggestion,index)=>{
                             return <li>
-                                {suggestion.Street}
-                                {suggestion.Zip_Code}
-                                {suggestion.Zip_Code}
+
+                                {suggestion.Street}, 
+                                {suggestion.Zip_Code}<br></br>
+                                Details: {suggestion.Details}<br></br>
+                                Status: {suggestion.Status}
+                                <form action={`/suggestions/${suggestion._id}`}>
+                                   <button onClick={(e)=>{suggestionDelete(suggestion._id)}}>Delete</button>
+                                </form>
                             </li>
                         })
                     }
