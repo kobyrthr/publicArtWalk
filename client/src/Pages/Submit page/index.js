@@ -19,9 +19,10 @@ useEffect(()=>{
 },[])
 
 
-const suggestionDelete = async (id,e)=>{
+const suggestionDelete = async (id)=>{
     try {
-        e.preventDefault()
+        // e.preventDefault()
+        console.log("Hello")
         const deletedSuggestion = await axios.delete(slash+`/${id}`)
         console.log(id)
         console.log(deletedSuggestion)        
@@ -29,9 +30,9 @@ const suggestionDelete = async (id,e)=>{
         console.log(error)
     } 
 }
-useEffect(()=>{
-    suggestionDelete()
-},[])
+// useEffect(()=>{
+//     suggestionDelete()
+// },[])
 
     return(
         <div className="row sgstPage">

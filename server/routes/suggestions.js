@@ -42,7 +42,7 @@ try {
 // DELETE ROUTE
 router.delete('/:id/', async(req,res)=>{
     try {
-        await Suggestion.findByIdAndDelete({_id:req.params.id})
+        await Suggestion.findByIdAndDelete(req.params.id)
         res.send("succesfully deleted")
     } catch (error) {
         res.status(500).json(error)
