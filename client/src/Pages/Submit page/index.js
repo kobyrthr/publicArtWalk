@@ -30,9 +30,16 @@ const suggestionDelete = async (id)=>{
         console.log(error)
     } 
 }
-// useEffect(()=>{
-//     suggestionDelete()
-// },[])
+
+const suggestionEdit = async (id)=>{
+    try {
+        const updateSuggestion = await axios.update(slash+`/edit/${id}`)
+        console.log(id)
+        console.log(updateSuggestion)        
+    } catch (error) {
+        console.log(error)
+    } 
+}
 
     return(
         <div className="row sgstPage">
@@ -70,6 +77,7 @@ const suggestionDelete = async (id)=>{
                                 <form action={`/suggestions/${suggestion._id}`}>
                                    <button onClick={(e)=>{suggestionDelete(suggestion._id)}}>Delete</button>
                                 </form>
+                                <a href={`${slash}/edit/${suggestion._id}`}>Edit</a>
                             </li>
                         })
                     }
