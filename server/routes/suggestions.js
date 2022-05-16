@@ -3,7 +3,7 @@ const Suggestion = require("../models/Suggestion")
 
 // POST ROUTE  
 
-router.post('/suggestions', async (req, res)=>{w
+router.post('/', async (req, res)=>{
     const newSuggestion = new Suggestion(req.body)
     try{
         const savedSuggestion = await newSuggestion.save()
@@ -14,3 +14,4 @@ router.post('/suggestions', async (req, res)=>{w
     }
 })
 
+module.exports = router

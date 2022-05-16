@@ -13,6 +13,7 @@ const cors = require('cors');
 // all code that is our code
 const pinRoute = require("./routes/pins")
 const userRoute = require("./routes/users")
+const suggestionRoute = require("./routes/suggestions")
 
 
 /* ====== Instanced Module  ====== */
@@ -54,6 +55,7 @@ mongoose
 /* ====== Routes  ====== */
 app.use("/api/pins", pinRoute)
 app.use("/api/user", userRoute)
+app.use("/api/suggestions", suggestionRoute)
 
 	
 /* ====== Server bind  ====== */
