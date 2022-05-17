@@ -28,9 +28,13 @@ useEffect(()=>{
     getSuggestions()
 },[])
 
-const suggestionPost = async(req,res)=>{
+const suggestionPost = async(e)=>{
+    e.preventDefault()
+    const newSuggestion = {Name,Street,Zip_Code,Artist,Details}
     try {
-        const newSuggestion = await axios.post()
+        const res = await axios.post(slash, newSuggestion)
+        console.log(res)
+        getSuggestions()  
     } catch (error) {
         
     }
@@ -105,17 +109,17 @@ const suggestionEdit = async (e)=>{
          <form className="columns six suggestForm" action="/" method="POST">
                 <h1> Suggest A New Location</h1>
                 <label for="title">Your Name</label>
-                <input type="text" name="title"></input>
+                <input type="text" name="title" value={Name} onChange={e=>setName(e.target.value)}></input>
                 <label for="Street">Street</label>
-                <input type="text" name="Street"></input>
+                <input type="text" name="Street" value={Street} onChange={e=>setStreet(e.target.value)}></input>
                 <label for="Zip Code">Zip Code</label>
-                <input type="text" name="Zip Code"></input>
+                <input type="text" name="Zip Code" value={Zip_Code} onChange={e=>setZip_Code(e.target.value)}></input>
                 <label for="Artist">Artist</label>
-                <input type="text" name="Artist"></input>
+                <input type="text" name="Artist" value={Artist} onChange={e=>setArtist(e.target.value)}></input>
                 <label for="">Details</label>
-                <textarea type="text" name="Details"></textarea>
-                <button type="submit">Save</button>
-                <button type="submit">Cancel</button>
+                <textarea type="text" name="Details" value={Details} onChange={e=>setDetails(e.target.value)}></textarea>
+                <button onClick={(e)=>suggestionPost(e)}>Save</button>
+                <button type="reset" onClick={(e)=>{window.location.reload()}}>Cancel</button>
 
 
             </form>
