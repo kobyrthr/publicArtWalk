@@ -69,10 +69,29 @@ const closeEdit = async (id)=>{
         setZip_Code("")
         setArtist("")
         setDetails("")
-        // console.log(e)
+      
+    } catch (error) {
+        console.log(error)
+    } 
+}
 
-        // const updateSuggestion = await axios.put(slash+`/${id}`)
-        // console.log(updateSuggestion)        
+const suggestionEdit = async (e)=>{
+    try {
+        e.preventDefault()
+        setShow(false)
+        // let suggestion = suggestions.filter(x=>x._id===id)
+        // setSuggestionId("") 
+        // console.log("") 
+        // setZip_Code("")
+        // setArtist("")
+        // setDetails("")
+        // console.log(e)
+        const updatedSuggestion = {Name, Street, Artist, Details, Zip_Code}
+        console.log(updatedSuggestion)
+
+        const res = await axios.put(slash+`/${suggestionId}`, updatedSuggestion)
+        console.log(res)      
+        getSuggestions()  
     } catch (error) {
         console.log(error)
     } 
@@ -114,7 +133,7 @@ const closeEdit = async (id)=>{
                 <input type="text" name="Artist" value={Artist} onChange={e=>setArtist(e.target.value)}></input>
                 <label for="">Details</label>
                 <textarea type="text" name="Details" value={Details} onChange={e=>setDetails(e.target.value)}></textarea>
-                <button type="submit">Save</button>
+                <button type="submit" onClick={(e)=>suggestionEdit(e)}>Save</button>
                 <button type="reset" onClick={(e)=>closeEdit()}>Cancel</button>
             </form>
             </div>
