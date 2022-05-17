@@ -9,6 +9,8 @@ const [Street, setStreet]= useState("")
 const [Zip_Code, setZip_Code]= useState("")
 const [Artist, setArtist]= useState("")
 const [Details, setDetails]= useState("")
+const [show, setShow] = useState(true)
+const [suggestionId, setSuggestionId] = useState("")
 
 
 const getSuggestions = async()=>{
@@ -36,10 +38,15 @@ const suggestionDelete = async (id)=>{
     } 
 }
 
-const suggestionEdit = async (id)=>{
+
+
+
+const openEdit = async (id)=>{
     try {
         let suggestion = suggestions.filter(x=>x._id===id)
-        console.log(suggestion[0].Street)
+        setShow(false)
+        setSuggestionId(suggestion[0]._id) 
+        console.log(suggestionId)
         setStreet(suggestion[0].Street) 
         setZip_Code(suggestion[0].Zip_Code)
         setArtist(suggestion[0].Artist)
@@ -53,11 +60,50 @@ const suggestionEdit = async (id)=>{
     } 
 }
 
+const closeEdit = async (id)=>{
+    try {
+        let suggestion = suggestions.filter(x=>x._id===id)
+        setShow(true)
+        setSuggestionId("") 
+        console.log("") 
+        setZip_Code("")
+        setArtist("")
+        setDetails("")
+        // console.log(e)
+
+        // const updateSuggestion = await axios.put(slash+`/${id}`)
+        // console.log(updateSuggestion)        
+    } catch (error) {
+        console.log(error)
+    } 
+}
+
     return(
         <div className="row sgstPage">
+        {show? 
+         <form className="columns six suggestForm" action="/" method="POST">
+                <h1> Suggest A New Location</h1>
+                <label for="title">Your Name</label>
+                <input type="text" name="title"></input>
+                <label for="Street">Street</label>
+                <input type="text" name="Street"></input>
+                <label for="Zip Code">Zip Code</label>
+                <input type="text" name="Zip Code"></input>
+                <label for="Artist">Artist</label>
+                <input type="text" name="Artist"></input>
+                <label for="">Details</label>
+                <textarea type="text" name="Details"></textarea>
+                <button type="submit">Save</button>
+                <button type="submit">Cancel</button>
 
-            <form className="columns six suggestForm" action="/" method="POST">
-                <h1> Suggest A Location</h1>
+
+            </form>
+        :
+            <div>
+
+            
+            <form className="columns six suggestForm" action="/" method="POST" style={{}}>
+                <h1> Edit A Suggestion</h1>
                 <label for="title">Your Name</label>
                 <input type="text" name="title" value={Name} onChange={e=>setName(e.target.value)}></input>
                 <label for="Street">Street</label>
@@ -69,10 +115,12 @@ const suggestionEdit = async (id)=>{
                 <label for="">Details</label>
                 <textarea type="text" name="Details" value={Details} onChange={e=>setDetails(e.target.value)}></textarea>
                 <button type="submit">Save</button>
-                <button type="submit">Cancel</button>
-
-
+                <button type="reset" onClick={(e)=>closeEdit()}>Cancel</button>
             </form>
+            </div>
+        }
+
+           
 
                 <div className="columns six loc-list-wrapper">
                     <h3>Suggested Locations</h3>
@@ -89,7 +137,7 @@ const suggestionEdit = async (id)=>{
                                 {/* <form action={`/suggestions/${suggestion._id}`}>
                                 </form> */}
                                 <button onClick={(e)=>suggestionDelete(suggestion._id)}>Delete</button>
-                                <button onClick={(e)=>suggestionEdit(suggestion._id)}>Edit</button>
+                                <button onClick={(e)=>openEdit(suggestion._id)}>Edit</button>
                             </li>
                         })
                     }
