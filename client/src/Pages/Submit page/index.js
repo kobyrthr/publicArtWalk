@@ -34,7 +34,8 @@ const suggestionPost = async(e)=>{
     try {
         const res = await axios.post(slash, newSuggestion)
         console.log(res)
-        getSuggestions()  
+        getSuggestions() 
+        closeEdit() 
     } catch (error) {
         
     }
@@ -75,6 +76,8 @@ const closeEdit = async (id)=>{
         setShow(true)
         // RESET THE STATE OF THE FORM
         setSuggestionId("") 
+        setName("")
+        setStreet("")
         setZip_Code("")
         setArtist("")
         setDetails("")
