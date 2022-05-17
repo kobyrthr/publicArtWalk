@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export default function LeftSidebar({pins}) {
 
   return (
-    <div className='sidebar'>
+    <div className='sidebar columns four'>
         <div className='heading'>
           <h1>Location List</h1>
         </div>

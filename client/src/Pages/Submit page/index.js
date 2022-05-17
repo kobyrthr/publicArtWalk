@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react"
 import axios from "axios"
+import NavBar from '../../Components/NavBar';
 
 const SubmitPage = ()=>{
 const slash = "http://localhost:4000/api/suggestions"
@@ -11,6 +12,7 @@ const [Artist, setArtist]= useState("")
 const [Details, setDetails]= useState("")
 const [show, setShow] = useState(true)
 const [suggestionId, setSuggestionId] = useState("")
+
 
 
 const getSuggestions = async()=>{
@@ -107,6 +109,10 @@ const suggestionEdit = async (e)=>{
 }
 
     return(
+        <>
+        <div className="row">
+            <NavBar/>
+        </div>
         <div className="row sgstPage">
         {show? 
          <form className="columns six suggestForm" action="/" method="POST">
@@ -175,6 +181,7 @@ const suggestionEdit = async (e)=>{
                     </div>
                 </div>
         </div>
+        </>
     )
 }
 
