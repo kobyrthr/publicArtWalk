@@ -91,7 +91,9 @@ const suggestionEdit = async (e)=>{
         // RESET THE SUGGESTION LIST
         getSuggestions()  
         // TOGLLE THE DETAILS FORM OFF
-        setShow(true)
+          setShow(true)
+        // RESET THE STATE OF THE FORM
+        window.location.reload()
     } catch (error) {
         console.log(error)
     } 
