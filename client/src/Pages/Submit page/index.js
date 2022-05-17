@@ -78,7 +78,6 @@ const closeEdit = async (id)=>{
 const suggestionEdit = async (e)=>{
     try {
         e.preventDefault()
-        setShow(false)
         // let suggestion = suggestions.filter(x=>x._id===id)
         // setSuggestionId("") 
         // console.log("") 
@@ -88,10 +87,11 @@ const suggestionEdit = async (e)=>{
         // console.log(e)
         const updatedSuggestion = {Name, Street, Artist, Details, Zip_Code}
         console.log(updatedSuggestion)
-
+        
         const res = await axios.put(slash+`/${suggestionId}`, updatedSuggestion)
         console.log(res)      
-        // getSuggestions()  
+        getSuggestions()  
+        setShow(true)
     } catch (error) {
         console.log(error)
     } 
