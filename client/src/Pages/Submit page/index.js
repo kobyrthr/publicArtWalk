@@ -4,6 +4,11 @@ import axios from "axios"
 const SubmitPage = ()=>{
 const slash = "http://localhost:4000/api/suggestions"
 const [suggestions, setSuggestions] = useState([])
+const [Name, setName]= useState("")
+const [Street, setStreet]= useState("")
+const [Zip_Code, setZip_Code]= useState("")
+const [Artist, setArtist]= useState("")
+const [Details, setDetails]= useState("")
 
 
 const getSuggestions = async()=>{
@@ -33,8 +38,8 @@ const suggestionDelete = async (id)=>{
 
 const suggestionEdit = async (id)=>{
     try {
-        // const updateSuggestion = await axios.update(slash+`/edit/${id}`)
         console.log("Edit",id)
+        // const updateSuggestion = await axios.put(slash+`/${id}`)
         // console.log(updateSuggestion)        
     } catch (error) {
         console.log(error)
@@ -47,15 +52,15 @@ const suggestionEdit = async (id)=>{
             <form className="columns six suggestForm" action="/" method="POST">
                 <h1> Suggest A Location</h1>
                 <label for="title">Your Name</label>
-                <input type="text" name="title"></input>
+                <input type="text" name="title" value={Name} onChange={e=>setName(e.target.value)}></input>
                 <label for="Street">Street</label>
-                <input type="text" name="Street"></input>
+                <input type="text" name="Street" value={Street} onChange={e=>setStreet(e.target.value)}></input>
                 <label for="Zip Code">Zip Code</label>
-                <input type="text" name="Zip Code"></input>
+                <input type="text" name="Zip Code" value={Zip_Code} onChange={e=>setZip_Code(e.target.value)}></input>
                 <label for="Artist">Artist</label>
-                <input type="text" name="Artist"></input>
+                <input type="text" name="Artist" value={Artist} onChange={e=>setArtist(e.target.value)}></input>
                 <label for="">Details</label>
-                <textarea type="text" name="Details"></textarea>
+                <textarea type="text" name="Details" value={Details} onChange={e=>setDetails(e.target.value)}></textarea>
                 <button type="submit">Save</button>
                 <button type="submit">Cancel</button>
 
