@@ -162,12 +162,13 @@ const suggestionEdit = async (e)=>{
 
                     {
                         suggestions.map((suggestion,index)=>{
-                            return <li>
+                            return <li className="loc-list-item">
 
                                 {suggestion.Street}, 
                                 {suggestion.Zip_Code}<br></br>
                                 Details: {suggestion.Details}<br></br>
-                                Status: {suggestion.Status}
+                                Status: {suggestion.Status}<br></br>
+                                
                                 {/* <form action={`/suggestions/${suggestion._id}`}>
                                 </form> */}
                                 <button onClick={(e)=>suggestionDelete(suggestion._id)}>Delete</button>

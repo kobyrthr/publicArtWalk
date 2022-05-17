@@ -193,3 +193,25 @@ flex-direction: column;
   margin:0;
   width:69% !important;
 }
+
+.loc-list-item{
+list-style: none;
+}
+
+.home-div{
+  background-image: url("../public/images/Public\ Art\ Walk.png");
+  min-width: 100vw;
+  min-height: 100vh;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.home-div h1{
+  color:white;
+
+  margin: 0 auto;
+  font-size: 200px;
+}
