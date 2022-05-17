@@ -16,6 +16,7 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/Map" element={<MapApp />} />
       <Route path="/suggestions" element={<SubmitPage/>} />
     </Routes>  
   </BrowserRouter>

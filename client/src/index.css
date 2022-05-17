@@ -214,4 +214,12 @@ list-style: none;
 
   margin: 0 auto;
   font-size: 200px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.home-div button{
+  color:white;
+
+  margin: 0 auto;
+  font-size: 20px;
 }
