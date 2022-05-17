@@ -15,46 +15,51 @@ const [suggestionId, setSuggestionId] = useState("")
 
 const getSuggestions = async()=>{
     try {
+        //GET ALL THE SUGGESTIONS FROM THE SERVER
         const allSuggestions = await axios.get(slash)
+        // SET THE SUGGESTION DATA TO THE SUGGESTIONS STATE ARRAY
         setSuggestions(allSuggestions.data)
     } catch (error) {
         console.log(error)
     }
 }
 useEffect(()=>{
+    // CALL THE GETSUGGESTIONS FUNCTION
     getSuggestions()
 },[])
 
+const suggestionPost = async(req,res)=>{
+    try {
+        const newSuggestion = await axios.post()
+    } catch (error) {
+        
+    }
+}
 
 const suggestionDelete = async (id)=>{
     try {
-        // e.preventDefault()
+        //SEND THE DELETE REQUEST FOR THE SELECTED ITEM
         const deletedSuggestion = await axios.delete(slash+`/${id}`)
         console.log("Deleted",deletedSuggestion)
+        //RERENDER THE SUGGESTIONS LIST
         getSuggestions()
-        // console.log("Delete",id)
     } catch (error) {
         console.log(error)
     } 
 }
 
-
-
-
 const openEdit = async (id)=>{
     try {
+        //SET THE SELECTED SUGGESTION STATE TO ALL SUGGESTIONS WHERE THE THE SUGGESITON ID MATCHES THE ID PASSED BY OUR ONCLICK
         let suggestion = suggestions.filter(x=>x._id===id)
+        //CHANGE SHOW STATE TO FALES
         setShow(false)
+        //SET THE STATE FOR THE FORM FIELD TO RENDER THE INFO FROM THE SELECTED SUGGESTION
         setSuggestionId(suggestion[0]._id) 
-        console.log(suggestionId)
         setStreet(suggestion[0].Street) 
         setZip_Code(suggestion[0].Zip_Code)
         setArtist(suggestion[0].Artist)
-        setDetails(suggestion[0].Details)
-        // console.log(e)
-
-        // const updateSuggestion = await axios.put(slash+`/${id}`)
-        // console.log(updateSuggestion)        
+        setDetails(suggestion[0].Details)    
     } catch (error) {
         console.log(error)
     } 
@@ -62,10 +67,10 @@ const openEdit = async (id)=>{
 
 const closeEdit = async (id)=>{
     try {
-        let suggestion = suggestions.filter(x=>x._id===id)
+        // CHANGE SHOW STATE TO TRUE TO CLOSE THE EDIT FORM
         setShow(true)
+        // RESET THE STATE OF THE FORM
         setSuggestionId("") 
-        console.log("") 
         setZip_Code("")
         setArtist("")
         setDetails("")
@@ -77,20 +82,15 @@ const closeEdit = async (id)=>{
 
 const suggestionEdit = async (e)=>{
     try {
+        // PREVENT THE BUTTON FROM AUTOMATICALLY SUBMITTING WHEN CLICKED
         e.preventDefault()
-        // let suggestion = suggestions.filter(x=>x._id===id)
-        // setSuggestionId("") 
-        // console.log("") 
-        // setZip_Code("")
-        // setArtist("")
-        // setDetails("")
-        // console.log(e)
+        // GATHER THE CURRENT ITEM DETAILS FROM THE CURRENT STATE
         const updatedSuggestion = {Name, Street, Artist, Details, Zip_Code}
-        console.log(updatedSuggestion)
-        
+        // HIT THE PUT ROUTE AND PASS THE CURRENT FORM DETAILS TO THE SUGGESTION ID
         const res = await axios.put(slash+`/${suggestionId}`, updatedSuggestion)
-        console.log(res)      
+        // RESET THE SUGGESTION LIST
         getSuggestions()  
+        // TOGLLE THE DETAILS FORM OFF
         setShow(true)
     } catch (error) {
         console.log(error)
@@ -118,10 +118,10 @@ const suggestionEdit = async (e)=>{
 
             </form>
         :
-            <div>
+            
 
             
-            <form className="columns six suggestForm" action="/" method="POST" style={{}}>
+            <form className="columns six suggestForm" action="/" method="POST">
                 <h1> Edit A Suggestion</h1>
                 <label for="title">Your Name</label>
                 <input type="text" name="title" value={Name} onChange={e=>setName(e.target.value)}></input>
@@ -136,7 +136,7 @@ const suggestionEdit = async (e)=>{
                 <button type="submit" onClick={(e)=>suggestionEdit(e)}>Save</button>
                 <button type="reset" onClick={(e)=>closeEdit()}>Cancel</button>
             </form>
-            </div>
+            
         }
 
            
