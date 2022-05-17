@@ -91,7 +91,7 @@ const suggestionEdit = async (e)=>{
 
         const res = await axios.put(slash+`/${suggestionId}`, updatedSuggestion)
         console.log(res)      
-        getSuggestions()  
+        // getSuggestions()  
     } catch (error) {
         console.log(error)
     } 

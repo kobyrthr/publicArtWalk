@@ -43,9 +43,11 @@ try {
     const updatedSuggestion = await Suggestion.findByIdAndUpdate(req.params.id,
         {$set:{...req.body}},
         {new:true})
-    res.send(200).json(updatedSuggestion)
+        res.status(200).json(updatedSuggestion)
+        return
 } catch (error) {
-    res.send(500).json(error)
+    res.status(500).json(error)
+    return
 }
 })
 
