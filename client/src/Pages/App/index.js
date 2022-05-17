@@ -5,6 +5,9 @@ import CITIES from '../../../src/data/cities.json'
 import LeftSidebar from '../../Components/LeftSidebar';
 import PlaceCard from '../../Components/PlaceCard';
 import axios from "axios"
+import {BroswerRouter as Router, Route, Switch} from "react-router-dom"
+import NavBar from '../../Components/NavBar';
+
 
 const MapApp =()=> {
   const [pins, setPins] = useState([])
@@ -24,69 +27,67 @@ const MapApp =()=> {
     getPins();
   },[])
 
-  console.log(process.env)
   return(
-<div>
-    <div className="map">
-      <Map
-        initialViewState={{
-          longitude: -76.6122,
-          latitude: 39.2904,
-          zoom: 12
-        }}
-        style={{width: '100vw', height: '100vh'}}
-        mapStyle="mapbox://styles/mapbox/light-v10"
-        mapboxAccessToken={process.env.REACT_APP_MAPBOX}
-      >
-
-
-
-        {pins.map((city,index)=>{
-        return <Marker
-          key={`marker-${index}`}
-          longitude={city.lng}
-          latitude={city.lat}
-          color="dodgerblue"
-          anchor="bottom"
-          onClick={e => {
-              // If we let the click event propagates to the map, it will immediately close the popup
-              // with `closeOnClick: true`
-              e.originalEvent.stopPropagation();
-              setPopupInfo(city);
-            }}
-        />
-      })}
-  
-
-      {popupInfo && (
-            <Popup
-              anchor="top"
-              longitude={Number(popupInfo.longitude)}
-              latitude={Number(popupInfo.latitude)}
-              onClose={() => setPopupInfo(null)}
-            >
-              <div>
-                {popupInfo.city}, {popupInfo.state} |{' '}
-                <a
-                  target="_new"
-                  href={`http://en.wikipedia.org/w/index.php?title=Special:Search&search=${popupInfo.city}, ${popupInfo.state}`}
-                >
-                  Wikipedia
-                </a>
-              </div>
-              <img width="100%" src={popupInfo.image} />
-            </Popup>
-          )}
-
-
-      
-
-      </Map>
+    
+<div >
+    <div className=" row">
+      <NavBar className=" columns twelve"/>
     </div>
-    <LeftSidebar>
+    <div className='row'>
+      <LeftSidebar pins={pins}/>
+      <div className='map-wrapper columns eight'>
+        <Map
+          initialViewState={{
+            longitude: -76.6122,
+            latitude: 39.2904,
+            zoom: 12
+          }}
+          style={{height: '100vh'}}
+          mapStyle="mapbox://styles/mapbox/light-v10"
+          mapboxAccessToken={process.env.REACT_APP_MAPBOX}
+        >
+
+
+
+          {pins.map((city,index)=>{
+          return <Marker
+            key={`marker-${index}`}
+            longitude={city.lng}
+            latitude={city.lat}
+            color="dodgerblue"
+            anchor="bottom"
+            onClick={e => {
+                e.originalEvent.stopPropagation();
+                setPopupInfo(city);
+              }}
+          />
+        })}
+    
+
+        {popupInfo && (
+              <Popup
+                anchor="top"
+                longitude={Number(popupInfo.lng)}
+                latitude={Number(popupInfo.lat)}
+                onClose={() => setPopupInfo(null)}
+              >
+                <div>
+
+                  <strong>Artist</strong>: {popupInfo.Artist}<br></br>
+                  <strong>Address</strong>: {popupInfo.Street}, PostalCode: {popupInfo.PostalCode}<br></br>
+                  <strong>Year</strong>: {popupInfo.Year}<br></br>
+                </div>
+                <img width="100%" src={popupInfo.img_url} />
+              </Popup>
+            )}
+
         
 
-    </LeftSidebar>
+        </Map>
+      </div>
+    
+    </div>
+        
 </div>
   )
 

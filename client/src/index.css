@@ -30,7 +30,7 @@ a:hover {
 /* The page is split between map and sidebar - the sidebar gets 1/3, map
 gets 2/3 of the page. You can adjust this to your personal liking. */
 .sidebar {
-  position: absolute;
+  /* position: relative; */
   width: 25vw;
   height: 100%;
   top: 0;
@@ -40,7 +40,7 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
 }
 
 .map {
-  position: absolute;
+  position: relative;
   left: 25%;
   width: 75vw;
   top: 0;
@@ -151,7 +151,75 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
   padding: 24px;
 }
 
+.sgstPage{
+  display: flex;
+  flex-direction: row;
+}
+
 .location-form form {
   display: flex;
   flex-direction: column;
+}
+.suggestForm{
+  display: flex;
+  flex-direction: column;
+}
+
+.loc-list-wrapper{
+display: flex;
+flex-direction: column;
+}
+
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  background-color: black;
+  color: white;
+  align-items: center;
+  z-index:1;
+  padding: 0 32px;
+
+}
+
+.navbar a{
+  color:white;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.map-wrapper{
+  margin:0;
+  width:69% !important;
+}
+
+.loc-list-item{
+list-style: none;
+}
+
+.home-div{
+  background-image: url("../public/images/Public\ Art\ Walk.png");
+  min-width: 100vw;
+  min-height: 100vh;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.home-div h1{
+  color:white;
+
+  margin: 0 auto;
+  font-size: 200px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.home-div button{
+  color:white;
+
+  margin: 0 auto;
+  font-size: 20px;
 }

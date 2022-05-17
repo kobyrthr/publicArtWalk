@@ -5,11 +5,11 @@ const PinSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // mapView: {type:mongoose.Schema.Types.ObjectId, ref: ''},
-    street:{ type:String},
-    city:{ type:String},
-    state:{ type:String},
-    postalCode:{ type:String},
+    Artist:{type:String},
+    Street:{ type:String},
+    City:{ type:String},
+    State:{ type:String},
+    PostalCode:{ type:String},
     lng: {
         type: String,
         required: true
@@ -17,6 +17,9 @@ const PinSchema = new mongoose.Schema({
     lat: {
         type: String,
         required: true
+    },
+    img_url:{
+        type: String
     }
 },
 {timestamps:true}) 
