@@ -6,13 +6,15 @@ import './normalize.css';
 import './skeleton.css';
 import MapApp from './Pages/App';
 import SubmitPage from './Pages/Submit page';
-// import {BroswerRouter} from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    {/* <BroswerRouter> */}
-    <SubmitPage />
-    {/* </BroswerRouter> */}
-  </React.StrictMode>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<MapApp />} />
+      <Route path="/suggestions" element={<SubmitPage/>} />
+    </Routes>  
+  </BrowserRouter>
 );

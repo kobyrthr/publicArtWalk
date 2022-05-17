@@ -5,6 +5,8 @@ import CITIES from '../../../src/data/cities.json'
 import LeftSidebar from '../../Components/LeftSidebar';
 import PlaceCard from '../../Components/PlaceCard';
 import axios from "axios"
+import {BroswerRouter as Router, Route, Switch} from "react-router-dom"
+
 
 const MapApp =()=> {
   const [pins, setPins] = useState([])
@@ -25,6 +27,7 @@ const MapApp =()=> {
   },[])
 
   return(
+    
 <div>
     <div className="map">
       <Map
