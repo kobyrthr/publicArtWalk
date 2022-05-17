@@ -38,7 +38,14 @@ const suggestionDelete = async (id)=>{
 
 const suggestionEdit = async (id)=>{
     try {
-        console.log("Edit",id)
+        let suggestion = suggestions.filter(x=>x._id===id)
+        console.log(suggestion[0].Street)
+        setStreet(suggestion[0].Street) 
+        setZip_Code(suggestion[0].Zip_Code)
+        setArtist(suggestion[0].Artist)
+        setDetails(suggestion[0].Details)
+        // console.log(e)
+
         // const updateSuggestion = await axios.put(slash+`/${id}`)
         // console.log(updateSuggestion)        
     } catch (error) {
