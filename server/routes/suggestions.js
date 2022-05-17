@@ -27,6 +27,16 @@ router.get('/', async(req,res)=>{
     }
 })
 
+router.get('/edit/:id', async(req,res)=>{
+    try {
+        const oneSuggestions = await Suggestion.findById(req.params.id)
+        res.status(200).json(oneSuggestions)
+    } 
+    catch (error) {
+        res.status(500).json(err)
+    }
+})
+
 //PUT ROUTE
 router.put('/:id', async(req,res)=>{
 try {

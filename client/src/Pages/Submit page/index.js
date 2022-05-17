@@ -6,15 +6,15 @@ const slash = "http://localhost:4000/api/suggestions"
 const [suggestions, setSuggestions] = useState([])
 
 
-useEffect(()=>{
-    const getSuggestions = async()=>{
-        try {
-            const allSuggestions = await axios.get(slash)
-            setSuggestions(allSuggestions.data)
-        } catch (error) {
-            console.log(error)
-        }
+const getSuggestions = async()=>{
+    try {
+        const allSuggestions = await axios.get(slash)
+        setSuggestions(allSuggestions.data)
+    } catch (error) {
+        console.log(error)
     }
+}
+useEffect(()=>{
     getSuggestions()
 },[])
 
@@ -22,10 +22,10 @@ useEffect(()=>{
 const suggestionDelete = async (id)=>{
     try {
         // e.preventDefault()
-        console.log("Hello")
         const deletedSuggestion = await axios.delete(slash+`/${id}`)
-        console.log(id)
-        console.log(deletedSuggestion)        
+        console.log("Deleted",deletedSuggestion)
+        getSuggestions()
+        // console.log("Delete",id)
     } catch (error) {
         console.log(error)
     } 
@@ -33,9 +33,9 @@ const suggestionDelete = async (id)=>{
 
 const suggestionEdit = async (id)=>{
     try {
-        const updateSuggestion = await axios.update(slash+`/edit/${id}`)
-        console.log(id)
-        console.log(updateSuggestion)        
+        // const updateSuggestion = await axios.update(slash+`/edit/${id}`)
+        console.log("Edit",id)
+        // console.log(updateSuggestion)        
     } catch (error) {
         console.log(error)
     } 
@@ -74,10 +74,10 @@ const suggestionEdit = async (id)=>{
                                 {suggestion.Zip_Code}<br></br>
                                 Details: {suggestion.Details}<br></br>
                                 Status: {suggestion.Status}
-                                <form action={`/suggestions/${suggestion._id}`}>
-                                   <button onClick={(e)=>{suggestionDelete(suggestion._id)}}>Delete</button>
-                                </form>
-                                <a href={`${slash}/edit/${suggestion._id}`}>Edit</a>
+                                {/* <form action={`/suggestions/${suggestion._id}`}>
+                                </form> */}
+                                <button onClick={(e)=>suggestionDelete(suggestion._id)}>Delete</button>
+                                <button onClick={(e)=>suggestionEdit(suggestion._id)}>Edit</button>
                             </li>
                         })
                     }
