@@ -5,18 +5,20 @@ export default function LeftSidebar({pins}) {
   return (
     <div className='sidebar columns four'>
         <div className='heading'>
-          <h1>Location List</h1>
+          <h1>Locations</h1>
         </div>
-       
+        <br></br>
+       <div className='loc-list'>
          {pins.map((pin)=>{
-            return <li>
+            return <li className='loc-list-item'>
 
-            <strong>Artist</strong>: {pin.Artist}<br></br>
-            <strong>Address</strong>: {pin.Street}, PostalCode: {pin.PostalCode}<br></br>
-            <strong>Year</strong>: {pin.Year}<br></br>
+            <span>{pin.Street}, {pin.PostalCode}</span><br></br>
+            Artist: {pin.Artist}<br></br>
+            Year: {pin.Year}<br></br>
 
             </li>
          })}
+       </div>
         <div id='listings' className='listings'></div>
     </div>
   )
