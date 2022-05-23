@@ -44,6 +44,7 @@ const suggestionPost = async(e)=>{
 }
 
 const suggestionDelete = async (id)=>{
+
     try {
         //SEND THE DELETE REQUEST FOR THE SELECTED ITEM
         const deletedSuggestion = await axios.delete(slash+`/${id}`)
@@ -92,7 +93,6 @@ const closeEdit = async (id)=>{
 const suggestionEdit = async (e)=>{
     try {
         // PREVENT THE BUTTON FROM AUTOMATICALLY SUBMITTING WHEN CLICKED
-        e.preventDefault()
         // GATHER THE CURRENT ITEM DETAILS FROM THE CURRENT STATE
         const updatedSuggestion = {Name, Street, Artist, Details, Zip_Code}
         // HIT THE PUT ROUTE AND PASS THE CURRENT FORM DETAILS TO THE SUGGESTION ID
@@ -169,12 +169,11 @@ const suggestionEdit = async (e)=>{
                                 <span>{suggestion.Street}, {suggestion.Zip_Code}</span><br></br>
                                 Details: {suggestion.Details}<br></br>
                                 Status: {suggestion.Status}<br></br>
-                                
-                                {/* <form action={`/suggestions/${suggestion._id}`}>
-                                </form> */}
-                                <button onClick={(e)=>suggestionDelete(suggestion._id)}>Delete</button>
-                                <button onClick={(e)=>openEdit(suggestion._id)}>Edit</button>
+                                <div className="list-btn edit-btn" onClick={(e)=>openEdit(suggestion._id)}></div>
+
+                                <div className="list-btn delete-btn" onClick={(e)=>suggestionDelete(suggestion._id)}></div>
                             </li>
+                            
                         })
                     }
 

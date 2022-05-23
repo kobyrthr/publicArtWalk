@@ -233,6 +233,26 @@ border-bottom: 1px solid #EEEEEE;
 padding: 8px;
 }
 
+
+.delete-btn{
+  background-image:url(client/public/images/delete-btn.svg);
+}
+.edit-btn{
+  background-image:url(client/public/images/edit-btn.svg);
+}
+
+.list-btn{
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  margin-right: 8px;
+  background-size: contain;
+}
+
+.list-btn:hover{
+  cursor: pointer
+}
+
 .home-div{
   background-image: url("../public/images/Public\ Art\ Walk.png");
   min-width: 100vw;
