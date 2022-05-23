@@ -29,7 +29,7 @@ const MapApp =()=> {
 
   return(
     
-<div >
+<div className='container'>
     <div className=" row">
       <NavBar className=" columns twelve"/>
     </div>

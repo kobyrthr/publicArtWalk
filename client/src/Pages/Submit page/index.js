@@ -109,54 +109,56 @@ const suggestionEdit = async (e)=>{
 }
 
     return(
-        <>
-        <div className="row">
-            <NavBar/>
-        </div>
-        <div className="row sgstPage">
-        {show? 
-         <form className="columns six suggestForm" action="/" method="POST">
-                <h1> Suggest A New Location</h1>
-                <label for="title">Your Name</label>
-                <input type="text" name="title" value={Name} onChange={e=>setName(e.target.value)}></input>
-                <label for="Street">Street</label>
-                <input type="text" name="Street" value={Street} onChange={e=>setStreet(e.target.value)}></input>
-                <label for="Zip Code">Zip Code</label>
-                <input type="text" name="Zip Code" value={Zip_Code} onChange={e=>setZip_Code(e.target.value)}></input>
-                <label for="Artist">Artist</label>
-                <input type="text" name="Artist" value={Artist} onChange={e=>setArtist(e.target.value)}></input>
-                <label for="">Details</label>
-                <textarea type="text" name="Details" value={Details} onChange={e=>setDetails(e.target.value)}></textarea>
-                <button onClick={(e)=>suggestionPost(e)}>Save</button>
-                <button type="reset" onClick={(e)=>{window.location.reload()}}>Cancel</button>
+        <div className="container">
+            <div className="row">
+                <NavBar/>
+            </div>
+            <div className="row sgstPage">            
+                {show? 
+                <div className="columns eight suggest-wrapper">
 
+                <form className="suggestForm" action="/" method="POST">
+                    <h1> Suggest A New Location</h1>
+                    <label for="title">Your Name</label>
+                    <input type="text" name="title" value={Name} onChange={e=>setName(e.target.value)}></input>
+                    <label for="Street">Street</label>
+                    <input type="text" name="Street" value={Street} onChange={e=>setStreet(e.target.value)}></input>
+                    <label for="Zip Code">Zip Code</label>
+                    <input type="text" name="Zip Code" value={Zip_Code} onChange={e=>setZip_Code(e.target.value)}></input>
+                    <label for="Artist">Artist</label>
+                    <input type="text" name="Artist" value={Artist} onChange={e=>setArtist(e.target.value)}></input>
+                    <label for="">Details</label>
+                    <textarea type="text" name="Details" value={Details} onChange={e=>setDetails(e.target.value)}></textarea>
+                    <button onClick={(e)=>suggestionPost(e)}>Save</button>
+                    <button type="reset" onClick={(e)=>{window.location.reload()}}>Cancel</button>
+                </form>
 
-            </form>
-        :
-            
+                </div>
+                :
+                    
+                <div className="columns eight suggest-wrapper">
 
-            
-            <form className="columns six suggestForm" action="/" method="POST">
-                <h1> Edit A Suggestion</h1>
-                <label for="title">Your Name</label>
-                <input type="text" name="title" value={Name} onChange={e=>setName(e.target.value)}></input>
-                <label for="Street">Street</label>
-                <input type="text" name="Street" value={Street} onChange={e=>setStreet(e.target.value)}></input>
-                <label for="Zip Code">Zip Code</label>
-                <input type="text" name="Zip Code" value={Zip_Code} onChange={e=>setZip_Code(e.target.value)}></input>
-                <label for="Artist">Artist</label>
-                <input type="text" name="Artist" value={Artist} onChange={e=>setArtist(e.target.value)}></input>
-                <label for="">Details</label>
-                <textarea type="text" name="Details" value={Details} onChange={e=>setDetails(e.target.value)}></textarea>
-                <button type="submit" onClick={(e)=>suggestionEdit(e)}>Save</button>
-                <button type="reset" onClick={(e)=>closeEdit()}>Cancel</button>
-            </form>
-            
-        }
+                <form className="suggestForm" action="/" method="POST">
+                    <h1> Edit A Suggestion</h1>
+                    <label for="title">Your Name</label>
+                    <input type="text" name="title" value={Name} onChange={e=>setName(e.target.value)}></input>
+                    <label for="Street">Street</label>
+                    <input type="text" name="Street" value={Street} onChange={e=>setStreet(e.target.value)}></input>
+                    <label for="Zip Code">Zip Code</label>
+                    <input type="text" name="Zip Code" value={Zip_Code} onChange={e=>setZip_Code(e.target.value)}></input>
+                    <label for="Artist">Artist</label>
+                    <input type="text" name="Artist" value={Artist} onChange={e=>setArtist(e.target.value)}></input>
+                    <label for="">Details</label>
+                    <textarea type="text" name="Details" value={Details} onChange={e=>setDetails(e.target.value)}></textarea>
+                    <button type="submit" onClick={(e)=>suggestionEdit(e)}>Save</button>
+                    <button type="reset" onClick={(e)=>closeEdit()}>Cancel</button>
+                </form>
 
-           
+                </div>
+                    
+                }            
 
-                <div className="columns six loc-list-wrapper">
+                <div className="columns four loc-list-wrapper">
                     <h3>Suggested Locations</h3>
                     <div className = "loc-list">
 
@@ -164,8 +166,7 @@ const suggestionEdit = async (e)=>{
                         suggestions.map((suggestion,index)=>{
                             return <li className="loc-list-item">
 
-                                {suggestion.Street}, 
-                                {suggestion.Zip_Code}<br></br>
+                                <span>{suggestion.Street}, {suggestion.Zip_Code}</span><br></br>
                                 Details: {suggestion.Details}<br></br>
                                 Status: {suggestion.Status}<br></br>
                                 
@@ -181,8 +182,8 @@ const suggestionEdit = async (e)=>{
                         <div className="icn-btn"></div>
                     </div>
                 </div>
+            </div>
         </div>
-        </>
     )
 }
 

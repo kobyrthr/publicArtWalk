@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&family=Playfair+Display&display=swap');
+
 * {
   box-sizing: border-box;
+}
+
+.container{
+  width:100% !important;
 }
 
 body {
@@ -8,6 +14,7 @@ body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Play', sans-serif;
 }
 
 h1 {
@@ -16,6 +23,7 @@ h1 {
   font-weight: 400;
   line-height: 20px;
   padding: 20px 2px;
+  font-family: 'Playfair Display', serif;
 }
 
 a {
@@ -37,22 +45,23 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
   left: 0;
   overflow: hidden;
   border-right: 1px solid rgba(0, 0, 0, 0.25);
+  /* padding: 0 24px; */
 }
 
-.map {
+/* .map {
   position: relative;
   left: 25%;
   width: 75vw;
   top: 0;
   bottom: 0;
-}
+} */
 
 .heading {
   background: #fff;
   border-bottom: 1px solid #eee;
   height: 60px;
   line-height: 60px;
-  padding: 0 10px;
+
 }
 
 .listings {
@@ -160,9 +169,16 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
   display: flex;
   flex-direction: column;
 }
+
+.suggest-wrapper{
+  border-right: 1px solid #EEEEEE;
+  height: 100vh;
+}
 .suggestForm{
   display: flex;
   flex-direction: column;
+  width: 50%;
+  padding: 0 24px;
 }
 
 .loc-list-wrapper{
@@ -179,14 +195,25 @@ flex-direction: column;
   color: white;
   align-items: center;
   z-index:1;
-  padding: 0 32px;
+  padding: 0 24px;
+  
 
 }
 
 .navbar a{
   color:white;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 16px;
+  margin: 0;
+}
+
+.navbar li{
+  margin: 0;
+}
+
+.navbar h1{
+  font-size: 40px;
+  
 }
 
 .map-wrapper{
@@ -194,8 +221,16 @@ flex-direction: column;
   width:69% !important;
 }
 
+.loc-list span{
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
 .loc-list-item{
 list-style: none;
+border-bottom: 1px solid #EEEEEE;
+padding: 8px;
 }
 
 .home-div{
