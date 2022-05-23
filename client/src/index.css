@@ -53,12 +53,12 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
 .sidebar {
   position: fixed;
   /* width: 25vw; */
-  height: 100%;
+  height: 99%;
   right: 0;
   float: right;
   margin:0;
   width: 33% !important;
-  overflow: auto;
+  overflow: scroll;
 }
 
 /* .map {

@@ -18,15 +18,7 @@ export default function LeftSidebar({pins}) {
 
             </li>
          })}
-         {pins.map((pin)=>{
-            return <li className='loc-list-item'>
-
-            <span>{pin.Street}, {pin.PostalCode}</span><br></br>
-            Artist: {pin.Artist}<br></br>
-            Year: {pin.Year}<br></br>
-
-            </li>
-         })}
+         
        </div>
         <div id='listings' className='listings'></div>
     </div>

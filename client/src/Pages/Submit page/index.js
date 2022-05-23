@@ -93,6 +93,7 @@ const closeEdit = async (id)=>{
 const suggestionEdit = async (e)=>{
     try {
         // PREVENT THE BUTTON FROM AUTOMATICALLY SUBMITTING WHEN CLICKED
+        e.preventDefault()
         // GATHER THE CURRENT ITEM DETAILS FROM THE CURRENT STATE
         const updatedSuggestion = {Name, Street, Artist, Details, Zip_Code}
         // HIT THE PUT ROUTE AND PASS THE CURRENT FORM DETAILS TO THE SUGGESTION ID
