@@ -115,7 +115,7 @@ const suggestionEdit = async (e)=>{
             </div>
             <div className="row sgstPage">            
                 {show? 
-                <div className="columns eight suggest-wrapper">
+                <div className="columns six suggest-wrapper">
 
                 <form className="suggestForm" action="/" method="POST">
                     <h1> Suggest A New Location</h1>
@@ -129,29 +129,29 @@ const suggestionEdit = async (e)=>{
                     <input type="text" name="Artist" value={Artist} onChange={e=>setArtist(e.target.value)}></input>
                     <label for="">Details</label>
                     <textarea type="text" name="Details" value={Details} onChange={e=>setDetails(e.target.value)}></textarea>
-                    <button onClick={(e)=>suggestionPost(e)}>Save</button>
+                    <button onClick={(e)=>suggestionPost(e)} className="button-primary">Save</button>
                     <button type="reset" onClick={(e)=>{window.location.reload()}}>Cancel</button>
                 </form>
 
                 </div>
                 :
                     
-                <div className="columns eight suggest-wrapper">
+                <div className="columns six suggest-wrapper">
 
                 <form className="suggestForm" action="/" method="POST">
                     <h1> Edit A Suggestion</h1>
-                    <label for="title">Your Name</label>
+                    <label for="title">Edit Your Name</label>
                     <input type="text" name="title" value={Name} onChange={e=>setName(e.target.value)}></input>
-                    <label for="Street">Street</label>
+                    <label for="Street">Edit Street</label>
                     <input type="text" name="Street" value={Street} onChange={e=>setStreet(e.target.value)}></input>
-                    <label for="Zip Code">Zip Code</label>
+                    <label for="Zip Code">Edit Zip Code</label>
                     <input type="text" name="Zip Code" value={Zip_Code} onChange={e=>setZip_Code(e.target.value)}></input>
-                    <label for="Artist">Artist</label>
+                    <label for="Artist">Edit Artist</label>
                     <input type="text" name="Artist" value={Artist} onChange={e=>setArtist(e.target.value)}></input>
-                    <label for="">Details</label>
+                    <label for="">Edit Details</label>
                     <textarea type="text" name="Details" value={Details} onChange={e=>setDetails(e.target.value)}></textarea>
-                    <button type="submit" onClick={(e)=>suggestionEdit(e)}>Save</button>
-                    <button type="reset" onClick={(e)=>closeEdit()}>Cancel</button>
+                    <button type="submit" onClick={(e)=>suggestionEdit(e)} className="button-primary">Save Edit</button>
+                    <button type="reset" onClick={(e)=>closeEdit()}>Cancel Edit</button>
                 </form>
 
                 </div>
@@ -159,7 +159,7 @@ const suggestionEdit = async (e)=>{
                 }            
 
                 <div className="columns four loc-list-wrapper">
-                    <h3>Suggested Locations</h3>
+                    <h1>Your Suggestions</h1>
                     <div className = "loc-list">
 
                     {

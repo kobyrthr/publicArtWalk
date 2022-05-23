@@ -34,7 +34,6 @@ const MapApp =()=> {
       <NavBar className=" columns twelve"/>
     </div>
     <div className='row'>
-      <LeftSidebar pins={pins}/>
       <div className='map-wrapper columns eight'>
         <Map
           initialViewState={{
@@ -42,7 +41,7 @@ const MapApp =()=> {
             latitude: 39.2904,
             zoom: 12
           }}
-          style={{height: '100vh'}}
+          style={{height: '90vh'}}
           mapStyle="mapbox://styles/mapbox/light-v10"
           mapboxAccessToken={process.env.REACT_APP_MAPBOX}
         >
@@ -62,6 +61,8 @@ const MapApp =()=> {
               }}
           />
         })}
+
+        
     
 
         {popupInfo && (
@@ -85,6 +86,7 @@ const MapApp =()=> {
 
         </Map>
       </div>
+      <LeftSidebar pins={pins}/>
     
     </div>
         
