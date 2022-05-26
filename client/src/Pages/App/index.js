@@ -39,7 +39,8 @@ const MapApp =()=> {
           initialViewState={{
             longitude: -76.6122,
             latitude: 39.2904,
-            zoom: 12
+            zoom: 12,
+            pitch:50,
           }}
           style={{height: '90vh'}}
           mapStyle="mapbox://styles/mapbox/light-v10"
