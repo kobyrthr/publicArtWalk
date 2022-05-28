@@ -49,7 +49,8 @@ const MapApp =()=> {
 
 
 
-          {pins.map((city,index)=>{
+          {
+            pins.map((city,index)=>{
           return <Marker
             key={`marker-${index}`}
             longitude={city.lng}
