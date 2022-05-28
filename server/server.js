@@ -31,11 +31,11 @@ app.use(express.json());
 
 
 /* ====== System Variables  ====== */
-const PORT = 4000; // full caps signify a config variable
 
 /* ====== App Configuration  ====== */
 // app.set
 const config = require('@deliveryApp/config');
+const PORT = process.env.PORT || 5000; 
 
 /* ====== Mongoose Configuration  ====== */
 const mongoose = require('mongoose');
