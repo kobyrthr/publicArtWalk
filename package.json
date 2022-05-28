@@ -6,6 +6,9 @@
   "author": "kobyrthr-dev <kobyrthr@gmail.com>",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "yarn": "1.x"
+  },
   "workspaces": [
     "client",
     "server",
