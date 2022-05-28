@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e396b683.css",
+    "main.js": "/static/js/main.cd5fe609.js",
+    "static/js/513.6854c213.chunk.js": "/static/js/513.6854c213.chunk.js",
+    "static/media/Public Art Walk.png": "/static/media/Public Art Walk.b09a18f45254cc400793.png",
+    "index.html": "/index.html",
+    "static/media/edit-btn.svg": "/static/media/edit-btn.c7767c753a5292e559e8.svg",
+    "static/media/delete-btn.svg": "/static/media/delete-btn.67830f59ba3f37c8a7b4.svg",
+    "main.e396b683.css.map": "/static/css/main.e396b683.css.map",
+    "main.cd5fe609.js.map": "/static/js/main.cd5fe609.js.map",
+    "513.6854c213.chunk.js.map": "/static/js/513.6854c213.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e396b683.css",
+    "static/js/main.cd5fe609.js"
+  ]
+}
