@@ -23,11 +23,14 @@ const app = express();
 
 	
 /* ====== Middleware  ====== */ 
-app.use(express.static(path.join('build')));
+// app.use(express.static(path.join('build')));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
 app.use(express.json());
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
 
 
 /* ====== System Variables  ====== */
@@ -56,6 +59,9 @@ mongoose
 app.use("/api/pins", pinRoute)
 app.use("/api/user", userRoute)
 app.use("/api/suggestions", suggestionRoute)
+app.get('*', (request, response) => {
+	response.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
+});
 
 	
 /* ====== Server bind  ====== */

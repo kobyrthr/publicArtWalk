@@ -20,6 +20,7 @@ const MapApp =()=> {
       try {
         const allPins = await axios.get(slash+'/pins');
         setPins(allPins.data)
+        console.log(pins)
       } catch (error) {
         console.log(error)
       }
@@ -49,20 +50,9 @@ const MapApp =()=> {
 
 
 
-          {pins.map((city,index)=>{
-          return <Marker
-            key={`marker-${index}`}
-            longitude={city.lng}
-            latitude={city.lat}
-            color="dodgerblue"
-            anchor="bottom"
-            onClick={e => {
-                e.originalEvent.stopPropagation();
-                setPopupInfo(city);
-              }}
-          />
-        })}
-    
+          {/* {
+            console.log(pins)}
+     */}
 
         {popupInfo && (
               <Popup
