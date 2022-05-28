@@ -31,7 +31,7 @@ app.use(express.json());
 
 
 /* ====== System Variables  ====== */
-const PORT = 4000; // full caps signify a config variable
+const PORT = process.env.PORT || 5000;
 
 /* ====== App Configuration  ====== */
 // app.set
