@@ -1,6 +1,6 @@
 
 <img src ="images/Landing Page.png">
-# About
+
 Since the start of COVID many people moved to new cities and started walking more. However, walks get boring after a while especially if you are not familiar with all the sights a new city has to offer. What if there was an app that easily allowed you to explore a new city while also getting in your daily steps? This is the first iteration of that application— an interactive map intended to help walkers find routes where there is publicly viewable art along the way.
 
 ## User Stories
