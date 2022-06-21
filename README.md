@@ -1,6 +1,6 @@
 
 # About
-Many of us have started walking more since the start of COVID and stay-at-home mandates. Many of us have also moved to a new city. What if there was an app that allowed you to explore a new city through a guided walking tour of its public art? This is the firs titeraiton of that application— an interactive map of few select murals in Baltimore, Maryland. 
+Since the start of COVID many people started walking more and many moved to new cities. However, walks get boring after a while espeically if you are not familiar with all the sights a new city has to offer. What if there was an app that easily allowed you to explore a new city while also getting in your steps? This is the firs iteration of that application— an interactive map that helps walkers find routes where there is publicly availble artwork in the city of their choice. 
 
 ## User Stories
 - As a walker I want the ability to register for an account and log in
@@ -8,6 +8,7 @@ Many of us have started walking more since the start of COVID and stay-at-home m
 - As a walker I want the ability to suggest new locations or modifications to existing points of interests
 
 ## Icebox
+    - As a walker, I want the ability to filter points of interest by city and type
     - As a walker I want the ability to use my phone location to locate nearby points of interest
     - As a walker I want the ability to create guided tours by adding points of interest to a collection 
     - As a walker I want the ability to receive walking directions through the app
