@@ -1,18 +1,18 @@
 
-# deliveryApp
-An app for delivery route managers to visualize all their delivery points on an interactive map
-
+# About
+Many of us have started walking more since the start of COVID and stay-at-home mandates. Many of us have also moved to a new city. What if there was an app that helped you explore a new city or any city through a guided walking tour? This is the firs titeraiton of that application— an interactive map of few select murals in Baltimore, Maryland. 
 
 ## User Stories
-- Users have the ability to register for an account
-- Users have the ability to log in
-- Users have the ability to CRUD locations
-- Users have the ability to see their locations on the map
-- Bonus
-    - Users have the ability to use address autocomplete search to find any address and automatically convert it to longitude and latitude coordinates
-    - Users have the ability to create a route for all the locations on their map
-    - Users have the ability to create multiple maps
-    - Users have the ability to create locations in bulk via .csv upload
+- As a walker I want the ability to register for an account and log in
+- As a walker I want the ability to see mural locations on a map
+- As a walker I want the ability to suggest new locations or modifications to existing listings
+- 
+
+## Icebox
+    - As a walker I want the ability to use my phone location to locate nearby points of interest
+    - As a walker I want the ability to create guided tours by adding points of interest to a collection 
+    - As a walker I want the ability to receive walking directions through the app
+    - As a walker I want the ability to leave media rich comments on a point of interest so other walkers know what expect when they arrive
 
 ## ERD
 <img src ="images/deliveryApp ERD.png">
