@@ -5,8 +5,7 @@ Many of us have started walking more since the start of COVID and stay-at-home m
 ## User Stories
 - As a walker I want the ability to register for an account and log in
 - As a walker I want the ability to see mural locations on a map
-- As a walker I want the ability to suggest new locations or modifications to existing listings
-- 
+- As a walker I want the ability to suggest new locations or modifications to existing points of interests
 
 ## Icebox
     - As a walker I want the ability to use my phone location to locate nearby points of interest
