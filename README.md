@@ -14,11 +14,12 @@ Since the start of COVID many people moved to new cities and started walking mor
     - As a walker I want the ability to receive walking directions through the app
     - As a walker I want the ability to leave media rich comments on a point of interest so other walkers know what expect when they arrive
 
-## ERD
-<img src ="images/deliveryApp ERD.png">
+## Low fidelity wireframes
 
-## Designs
-
-<img src ="images/deliveryApp login wireframe.png">
-<img src ="images/deliveryApp Maps wireframe.png">
 <img src ="images/deliveryApp mapView wireframe.png">
+
+## High fidelity wireframes
+
+<img src ="images/Landing Page.png">
+<img src ="images/Map Page.png">
+<img src ="images/Suggest a Location.png"> 
