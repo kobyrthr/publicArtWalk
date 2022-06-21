@@ -1,4 +1,5 @@
 
+<img src ="images/Landing Page.png">
 # About
 Since the start of COVID many people moved to new cities and started walking more. However, walks get boring after a while especially if you are not familiar with all the sights a new city has to offer. What if there was an app that easily allowed you to explore a new city while also getting in your daily steps? This is the first iteration of that application— an interactive map intended to help walkers find routes where there is publicly viewable art along the way.
 
@@ -14,12 +15,8 @@ Since the start of COVID many people moved to new cities and started walking mor
     - As a walker I want the ability to receive walking directions through the app
     - As a walker I want the ability to leave media rich comments on a point of interest so other walkers know what expect when they arrive
 
-## Low fidelity wireframes
+## Wireframes
 
 <img src ="images/deliveryApp mapView wireframe.png">
-
-## High fidelity wireframes
-
-<img src ="images/Landing Page.png">
 <img src ="images/Map Page.png">
 <img src ="images/Suggest a Location.png"> 
